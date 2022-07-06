@@ -1,0 +1,50 @@
+package dekoratorHero;
+import java.util.Scanner;
+public class Main {
+ public static void main (String [] args){
+ System.out.println("=============================HERO UPGRADER
+GAME=============================\nTo modify hero click:\n1.Add Gloves\n2.Add
+Shoes\n3.Add Pants\n4.Add Helmet\n5.Add Spell\nTo delete one thing
+press:\n6.Delete Gloves\n7.Delete Schoes\n8.Delete Pants\n9.Delete
+Helmet\n10.Delete Spell\n11.EXIT PROGRAM\n=============================" );
+ Hero heroHero = new Hero();
+ heroHero.getStats();
+ Scanner input1= new Scanner(System.in);
+ int item;
+ do {
+ item =input1.nextInt();
+ switch (item){
+ case 1:
+ heroHero = new Gloves(heroHero);
+break;
+ case 2:
+ heroHero = new Shoes(heroHero);
+break;
+ case 3:
+ heroHero = new Pants(heroHero);
+break;
+ case 4:
+ heroHero = new Helmet(heroHero);
+break;
+ case 5:
+ heroHero = new Spell(heroHero);
+break;
+ case 6:
+ heroHero = new NoGloves(heroHero);
+break;
+ case 7:
+ heroHero = new NoShoes(heroHero);
+break;
+ case 8:
+ heroHero = new NoPants(heroHero);
+break;
+ case 9:
+ heroHero = new NoHelmet(heroHero);
+break;
+ case 10:
+ heroHero = new NoSpell(heroHero);
+break;
+ }
+ }while(item <11);
+ }
+}
