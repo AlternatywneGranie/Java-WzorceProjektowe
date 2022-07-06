@@ -1,0 +1,19 @@
+package rekrutacja;
+public class lPodwodna implements IJednostkaWodna{
+ private final double a;
+ public lPodwodna(double a) {
+ this.a = a;
+ }
+ @Override
+ public double poziom() {
+ return (21*a) * a;
+ }
+ @Override
+ public double predkosc() {
+ return 150 * a;
+ }
+ @Override
+ public double ladownosc() {
+ return 1 * a;
+ }
+}
