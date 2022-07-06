@@ -1,0 +1,24 @@
+package dekoratorHero;
+public class NoHelmet extends HeroDecorator {
+ private int HPWithHelmet = -8;
+ private int StaminaWithHelmet = -13;
+ private int ManaWithHelmet = -14;
+ public NoHelmet(Hero heroHero) {
+ super(heroHero);
+ System.out.println("Helmet deleted!");
+ System.out.println("Stats updated " + getHP() + " HP/" + getStamina() +
+" Stamina/" +getMana()+" Mana");
+ }
+ @Override
+ public int getHP() {
+ return super.getHP() + HPWithHelmet;
+ }
+ @Override
+ public int getStamina() {
+ return super.getStamina() + StaminaWithHelmet;
+ }
+ @Override
+ public int getMana() {
+ return super.getMana() + ManaWithHelmet;
+ }
+}
