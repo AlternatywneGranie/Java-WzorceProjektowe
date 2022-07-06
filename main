@@ -1,0 +1,33 @@
+package pakedz;
+public class Main {
+ public static void main(String[] args) {
+ MyCustomList<String> kolor = new MyCustomList<>(11);
+ System.out.println(kolor.size());
+ kolor.add("Brzoskwinia");
+ kolor.add("Mirabelka");
+ kolor.add("Wisnia");
+ kolor.add("Czeresnia");
+ kolor.add("Agrest");
+ kolor.add("Ananas");
+ kolor.add("Arbuz");
+ kolor.add("Limonka");
+ kolor.add("Kokos");
+ kolor.add("Mango");
+ kolor.add("Awokado");
+ System.out.println();
+ for (int i = 0; i < 10; i++) {
+ System.out.println(kolor.get(i));
+ System.out.println();
+ System.out.println(kolor.pop());
+ System.out.println(kolor.size());
+ System.out.println();
+ //System.out.println(kolor.remove(4));//do odkomentowania w celu
+sprawdzenia
+ //fruits.clear(); //tak samo
+ System.out.println();
+ for (int k = 0; k < 10; k++) {
+ System.out.println(kolor.get(i));
+ }
+ }
+ }
+}
