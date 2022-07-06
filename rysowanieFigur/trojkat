@@ -1,0 +1,10 @@
+package pakedz;
+public class Trojkat {
+ public double a;
+ public double h;
+ public String typ = "Trojkat";
+ public Trojkat(double a, double h) {
+ this.a = a;
+ this.h = h;
+ }
+}
