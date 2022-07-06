@@ -1,0 +1,13 @@
+package rekrutacja;
+public class FPort {
+ public IJednostkaWodna CreateUnit(NazwyJednostek nazwy) {
+ switch (nazwy) {
+ case Statek:
+ return new Statek(2);
+ case lPodwodna:
+ return new lPodwodna(6);
+ default:
+ throw new IllegalArgumentException();
+ }
+ }
+}
