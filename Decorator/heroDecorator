@@ -1,0 +1,33 @@
+package dekoratorHero;
+public class HeroDecorator extends Hero {
+ protected Hero heros;
+ public HeroDecorator(Hero character) {
+ heros = character;
+ }
+ @Override
+ public int getHP() {
+ if (heros.getHP()<1)
+ {
+ System.out.println("Hero died!\nHP: "+heros.getHP());
+ System.exit(-1);
+ }
+ return heros.getHP();
+ }
+ @Override
+ public int getStamina() {
+ if (heros.getStamina()<1)
+ {
+ System.out.println("Hero stamina can't be on minus!");
+ System.exit(-1);
+ }
+ return heros.getStamina();
+ }
+ @Override
+ public int getMana() {
+ if (heros.getMana()<1)
+ {
+ System.out.println("Hero mana can't be on minus!");
+ System.exit(-1);
+ }
+ return heros.getMana();
+ }
