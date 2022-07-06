@@ -1,0 +1,6 @@
+package rekrutacja;
+public interface IJednostkaWodna {
+ double poziom();
+ double predkosc();
+ double ladownosc ();
+}
