@@ -1,0 +1,60 @@
+package pakedz;
+import static java.lang.System.*;
+import java.util.Scanner;
+public class Main {
+ public static final String ANSI_PURPLE = "\u001B[35m";
+ public static final String ANSI_YELLOW = "\u001B[33m";
+ public static final String ANSI_RED = "\u001B[31m";
+ public static final String ANSI_BCYAN ="\u001B[46m";
+ public static final String ANSI_RESET = "\u001B[0m";
+ public static void main(String[] args) {
+ CentralClock centralClock = new CentralClock();
+ Clock kuchniaa = new Clock("kuchnia", centralClock);
+ Clock pokooj = new Clock("pokoj", centralClock);
+ Clock holl = new Clock("salon", centralClock);
+ boolean u = true;
+ centralClock.start();
+ out.println(ANSI_YELLOW+"1. Dodaj zegar kuchenny\n2. Dodaj zegar
+pokojowy\n3. Dodaj zegar salonowy\n4. Dezaktywuj zegar kuchenny\n5. Dezaktywuj
+zegar pokojowy\n6. Dezaktywuj zegar salonowy"+ANSI_RESET+ANSI_RED+"\n0.
+Wyjdz"+ANSI_RESET);
+ do {
+ out.print(ANSI_PURPLE+"Wybierz opcje: "+ANSI_RESET);
+ int choice = new Scanner(in).nextInt();
+ switch (choice) {
+ case 1: {
+ centralClock.attach(kuchniaa);
+ }
+ break;
+ case 2: {
+ centralClock.attach(pokooj);
+ }
+ break;
+ case 3: {
+ centralClock.attach(holl);
+ }
+ break;
+ case 4: {
+ centralClock.detach(kuchniaa);
+ }
+ break;
+ case 5: {
+ centralClock.detach(pokooj);
+ }
+ break;
+ case 6: {
+ centralClock.detach(holl);
+ }
+ break;
+ case 0: {
+ centralClock.stopClock();
+u = false;
+ }
+ break;
+ default:
+ out.println("Nie ma takiej opcji.");
+ break;
+ }
+ } while (u);
+ }
+}
