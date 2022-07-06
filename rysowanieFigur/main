@@ -1,0 +1,14 @@
+package pakedz;
+public class Main {
+ public static void main(String[] args) {
+ Rysownik rysownik = new Rysownik();
+ Kwadrat kwadrat = new Kwadrat(3);
+ Trojkat trojkat = new Trojkat(5,5);
+ Prostokat prostokat = new Prostokat(3, 6);
+ rysownik.Rysuj(kwadrat, kwadrat.a);
+ System.out.println();
+ rysownik.Rysuj(trojkat, trojkat.a, trojkat.h);
+ System.out.println();
+ rysownik.Rysuj(prostokat, prostokat.a, prostokat.b);
+ }
+}
