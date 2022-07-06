@@ -1,0 +1,18 @@
+package rekrutacja;
+public class Zolnierz implements IJednostkaNaziemna {
+ private final double a;
+ public Zolnierz(double a) {
+ this.a = a;
+ }
+ @Override
+ public double poziom() {
+ return a * a;
+ }
+ @Override
+ public double obrona() {
+ return 2 * a;
+ }
+ @Override
+ public double atak() {
+ return 3 * a;
+ }
