@@ -1,0 +1,12 @@
+package rekrutacja;
+public class FHangar {
+ public IJednostkaPowietrzna CreateUnit(NazwyJednostek nazwy) {
+ switch (nazwy) {
+ case Helikopter:
+ return new Helikopter(2);
+ case Samolot:
+ return new Samolot(3);
+ default:
+ throw new IllegalArgumentException();
+ }
+ 
