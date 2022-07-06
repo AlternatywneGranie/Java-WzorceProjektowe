@@ -1,0 +1,6 @@
+package rekrutacja;
+public interface IJednostkaPowietrzna {
+ double poziom();
+ double bomba();
+ double paliwo ();
+}
