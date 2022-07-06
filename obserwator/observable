@@ -1,0 +1,6 @@
+package pakedz;
+interface Observable {
+ void attach(Clock observer);
+ void detach(Clock observer);
+ void notifyObservers();
+}
