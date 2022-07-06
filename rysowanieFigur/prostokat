@@ -1,0 +1,10 @@
+package pakedz;
+public class Prostokat {
+ public double a;
+ public double b;
+ public String typ = "Prostokat";
+ public Prostokat(double a, double b) {
+ this.a = a;
+ this.b = b;
+ }
+}
