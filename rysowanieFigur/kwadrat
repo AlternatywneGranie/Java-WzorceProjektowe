@@ -1,0 +1,8 @@
+package pakedz;
+public class Kwadrat {
+ public double a;
+ public String typ = "Kwadrat";
+ public Kwadrat(double a) {
+ this.a = a;
+ }
+}
