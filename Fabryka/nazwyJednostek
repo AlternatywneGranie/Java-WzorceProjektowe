@@ -1,0 +1,4 @@
+package rekrutacja;
+public enum NazwyJednostek {
+ Zolnierz, Czolg , Helikopter, Samolot, Statek, lPodwodna,
+}
