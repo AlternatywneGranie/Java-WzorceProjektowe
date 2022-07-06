@@ -1,0 +1,116 @@
+package rekrutacja;
+import java.util.Scanner;
+public class Main {
+ public static void main(String[] args) {
+ Scanner mainMenu = new Scanner(System.in);
+ int glMenu ,podMenu;
+ do{
+ System.out.println("###MENU###\nWcisnij odpowiednia
+litere:\n1.Stworz koszary[1]\n2.Stworz hangar[2]\n3.Stworz port[3]\n4.Powroc do
+glownego menu[4]\n5.Zatrzymaj dzialanie programu [5]");
+ glMenu= mainMenu.nextInt();
+ switch(glMenu) {
+ case 1:
+ FKoszary koszary = new FKoszary();
+System.out.println("Zbudowano koszary!");
+ do{
+ System.out.println("Zrekrutuj
+jednostke:\n1.Zolnierz\n2.Czolg\n3.Powrot\n");
+ podMenu=mainMenu.nextInt();
+switch(podMenu){
+ case 1:
+ IJednostkaNaziemna zolnierz =
+koszary.CreateUnit(NazwyJednostek.Zolnierz);
+ System.out.println("Zrekrutowano zolnierza!");
+ System.out.println("Poziom zolnierza " +
+zolnierz.poziom()+"\n"+"Obrona zolnierza " + zolnierz.obrona()+"\n"+"Atak
+zolnierza " + zolnierz.atak()+"\n");
+ break;
+ case 2:
+ IJednostkaNaziemna czolg =
+koszary.CreateUnit(NazwyJednostek.Czolg);
+ System.out.println("Zbudowano czolg!");
+ System.out.println("Poziom czolgu " +
+czolg.poziom()+"\n"+"Obrona czolgu "
+ + czolg.obrona()+"\n"+"Atak czolgu " +
+czolg.atak()+"\n");
+ break;
+ case 3:
+ System.out.println("Powrot do menu");
+ break;
+ }
+ }while(podMenu!=3);
+ break;
+ case 2:
+ FHangar hangar = new FHangar();
+System.out.println("Zbudowano hangar!\n");
+ do{
+ System.out.println("Zrekrutuj
+jednostke:\n1.Helikopter\n2.Samolot\n3.Powrot\n");
+ podMenu=mainMenu.nextInt();
+switch(podMenu)
+{
+ case 1:
+ IJednostkaPowietrzna helikopter =
+hangar.CreateUnit(NazwyJednostek.Helikopter);
+ System.out.println("Zbudowano helikopter!\n");
+ System.out.println("Poziom helikoptera " +
+helikopter.poziom()+"\n"+"Liczba bomb " + helikopter.bomba()+"\n"+"Paliwo" +
+helikopter.paliwo()+" l\n");
+ break;
+ case 2:
+ IJednostkaPowietrzna samolot =
+hangar.CreateUnit(NazwyJednostek.Samolot);
+ System.out.println("Zbudowano samolot!\n");
+ System.out.println("Poziom samolotu " +
+samolot.poziom()+"\n"+"Liczba bomb " + samolot.bomba()+"\n"+"Paliwo " +
+samolot.paliwo()+" l\n");
+ break;
+ case 3:
+ System.out.println("Powrot do menu\n");
+ break;
+ }
+ }while(podMenu!=3);
+ break;
+ case 3:
+ FPort port = new FPort();
+System.out.println("Zbudowano port!\n");
+ do{
+ System.out.println("Zrekrutuj jednostke:\n1.Lodz
+podwodna\n2.Statek\n3.Powrot\n");
+ podMenu=mainMenu.nextInt();
+switch(podMenu)
+{
+ case 1:
+ IJednostkaWodna lpodwodna =
+port.CreateUnit(NazwyJednostek.lPodwodna);
+ System.out.println("Zbudowano lodz
+podwodna!\n");
+ System.out.println("Poziom lodzi podwodnej " +
+lpodwodna.poziom()+"\n"+"Maksymalna predkosc " + lpodwodna.predkosc()+"
+wezlow."+"\n"+"Maksymalna liczba zolnierzy " + lpodwodna.ladownosc()+"\n");
+ break;
+ case 2:
+ IJednostkaWodna statek =
+port.CreateUnit(NazwyJednostek.Statek);
+ System.out.println("Zbudowano statek!\n");
+ System.out.println("Poziom statku " +
+statek.poziom()+"\n"+"Maksymalna predkosc " + statek.predkosc()+"
+wezlow."+"\n"+"Szacowana ladownosc " + statek.ladownosc()+" ton\n");
+ break;
+ case 3:
+ System.out.println("Powrot do menu");
+ break;
+ }
+ }while(podMenu!=3);
+ case 4:
+ System.out.println("Jestes w glownym menu ;))\n\n");
+ break;
+ case 5:
+ System.out.println("Zakonczenie dzialania programu ");
+ System.exit(-1);
+ break;
+ }
+ }while(glMenu!=5);
+ }
+}
