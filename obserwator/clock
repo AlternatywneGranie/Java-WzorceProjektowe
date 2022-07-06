@@ -1,0 +1,29 @@
+package pakedz;
+import static java.lang.System.*;
+public class Clock implements Observer{
+ public static final String TEXT_BG_RED = "\u001B[41m";
+ public static final String ANSI_RESET = "\u001B[0m";
+ private final CentralClock cc;
+ private long time = 0;
+ private long activationTime;
+ private String name;
+ public Clock(String name, CentralClock cc){
+ this.name = name;
+ this.cc = cc;
+ }
+ @Override
+ public synchronized void update() {
+ this.time = cc.getElapsedSeconds() - activationTime;
+ showTime();
+ }
+ private synchronized void showTime(){
+ out.println(TEXT_BG_RED+ "Zegar w " + name + " jest aktywny " + this.time
++ "s"+ANSI_RESET);
+ }
+ public String getName() {
+ return name;
+ }
+ public void setActivationTime(long activationTime){
+ this.activationTime = activationTime;
+ }
+}
