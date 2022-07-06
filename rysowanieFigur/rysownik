@@ -1,0 +1,33 @@
+package pakedz;
+public class Rysownik {
+ public void Rysuj(Kwadrat obj, double side) {
+ for (int i = 0; i < side; i++) {
+ for (int j = 0; j < side; j++) {
+ System.out.print("* ");
+ }
+ System.out.println("");
+ }
+ }
+ public void Rysuj(Trojkat obj, double x, double wys) {
+ String l = "";
+ for(int i = 1; i <= x; i++) {l = l+"^";}
+ int linia = (int)wys - 1;
+ System.out.println("*");
+ for (int spacje = 0; linia > 1 || spacje < x - 2;
+ ++spacje, --linia) {
+ String wypeln = "";
+ for(int i = 1; i <= spacje; i++) {wypeln =
+ wypeln+" ";}
+ System.out.print("^" + wypeln + "^\n");
+ }
+ System.out.print(l);
+ }
+ public void Rysuj(Prostokat obj, double v, double b){
+ for (int i = 0; i < v; i++) {
+ for (int j = 0; j < b; j++) {
+ System.out.print("^ ");
+ }
+ System.out.println("");
+ }
+ }
+}
