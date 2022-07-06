@@ -1,0 +1,13 @@
+package rekrutacja;
+public class FKoszary {
+ public IJednostkaNaziemna CreateUnit(NazwyJednostek nazwy) {
+ switch (nazwy) {
+ case Zolnierz:
+ return new Zolnierz(2);
+ case Czolg:
+ return new Czolg(3, 4);
+ default:
+ throw new IllegalArgumentException();
+ }
+ }
+}
