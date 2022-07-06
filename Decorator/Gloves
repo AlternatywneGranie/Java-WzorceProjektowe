@@ -1,0 +1,24 @@
+package dekoratorHero;
+public class Gloves extends HeroDecorator {
+ private int HPWithGloves = 25;
+ private int StaminaWithGloves = 60;
+ private int ManaWithGloves = 115;
+ public Gloves(Hero character) {
+ super(character);
+ System.out.println("Magic Gloves added!");
+ System.out.println("Stats updated " + getHP() + " HP/" + getStamina() +
+" Stamina/" +getMana()+" Mana");
+ }
+ @Override
+ public int getHP() {
+ return super.getHP() + HPWithGloves;
+ }
+ @Override
+ public int getStamina() {
+ return super.getStamina() + StaminaWithGloves;
+ }
+ @Override
+ public int getMana() {
+ return super.getMana() + ManaWithGloves;
+ }
+}
