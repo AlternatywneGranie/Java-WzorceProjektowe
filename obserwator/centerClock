@@ -1,0 +1,52 @@
+package pakedz;
+import java.lang.Thread;
+import java.util.ArrayList;
+import java.util.List;
+import static java.lang.System.*;
+public class CentralClock implements Observable {
+ public static final String TEXT_BRIGHT_BLUE = "\u001B[94m";
+ public static final String ANSI_RESET = "\u001B[0m";
+ private final List<Clock> clocks = new ArrayList<>();
+ private final byte INTERVAL = 60;
+ private volatile boolean running = true;
+ private volatile int elapsedSeconds;
+ private final Thread startTime = new Thread(() -> {
+ elapsedSeconds = 0;
+ while (running) {
+ try {
+ elapsedSeconds += INTERVAL;
+ notifyObservers();
+ long MILLIS = INTERVAL * 1000;
+ Thread.sleep(MILLIS);
+ } catch (InterruptedException ignored) {
+ }
+ }
+ });
+ public void start() {
+ out.println(TEXT_BRIGHT_BLUE+"Zegar Centralny zaczyna
+prace..."+ANSI_RESET);
+ startTime.start();
+ }
+ public synchronized void stopClock() {
+ out.println(TEXT_BRIGHT_BLUE+"Zegar Centralny kończy swą
+pracę."+ANSI_RESET);
+ this.running = false;
+ startTime.interrupt();
+ }
+ @Override
+ public synchronized void attach(Clock observer) {
+ observer.setActivationTime(elapsedSeconds);
+ clocks.add(observer);
+ }
+ @Override
+ public synchronized void detach(Clock observer) {
+ clocks.remove(observer);
+ }
+ @Override
+ public synchronized void notifyObservers() {
+ clocks.forEach(Clock::update);
+ }
+ public synchronized int getElapsedSeconds() {
+ return elapsedSeconds;
+ }
+}
