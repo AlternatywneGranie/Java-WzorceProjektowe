@@ -1,0 +1,4 @@
+package pakedz;
+interface Observer {
+ void update();
+}
