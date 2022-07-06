@@ -1,0 +1,19 @@
+package rekrutacja;
+public class Czolg implements IJednostkaNaziemna {
+ private final double a;
+ private final double b;
+ public Czolg(double a, double b) {
+ this.a = a;
+ this.b = b;
+ }
+ @Override
+ public double poziom() {return a * b;}
+ @Override
+ public double obrona() {
+ return (2 * a) + (2 * b);
+ }
+ @Override
+ public double atak() {
+ return (2 * a) + (2 * b);
+ }
+}
