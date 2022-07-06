@@ -1,0 +1,19 @@
+package rekrutacja;
+public class Helikopter implements IJednostkaPowietrzna{
+ private final double a;
+ public Helikopter(double a) {
+ this.a = a;
+ }
+ @Override
+ public double poziom() {
+ return (12*a) * a;
+ }
+ @Override
+ public double bomba() {
+ return 6 * a;
+ }
+ @Override
+ public double paliwo() {
+ return 25 * a;
+ }
+}
