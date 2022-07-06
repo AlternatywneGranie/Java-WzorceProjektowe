@@ -1,0 +1,24 @@
+package dekoratorHero;
+public class Spell extends HeroDecorator {
+ private int HPWithSpell = 1;
+ private int StaminaWithSpell = 1;
+ private int ManaWithSpell = 200;
+ public Spell(Hero heroHero) {
+ super(heroHero);
+ System.out.println("Spell learned!");
+ System.out.println("Stats updated " + getHP() + " HP/" + getStamina() +
+" Stamina/" +getMana()+" Mana");
+ }
+ @Override
+ public int getHP() {
+ return super.getHP() + HPWithSpell;
+ }
+ @Override
+ public int getStamina() {
+ return super.getStamina() + StaminaWithSpell;
+ }
+ @Override
+ public int getMana() {
+ return super.getMana() + ManaWithSpell;
+ }
+}
