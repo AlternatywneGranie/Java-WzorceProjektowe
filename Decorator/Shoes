@@ -1,0 +1,24 @@
+package dekoratorHero;
+public class Shoes extends HeroDecorator {
+ private int HPWithShoes = 43;
+ private int StaminaWithShoes = 72;
+ private int ManaWithShoes = 91;
+ public Shoes(Hero character) {
+ super(character);
+ System.out.println("Shoes added!");
+ System.out.println("Stats updated " + getHP() + " HP/" + getStamina() +
+" Stamina/" +getMana()+" Mana");
+ }
+ @Override
+ public int getHP() {
+ return super.getHP() + HPWithShoes;
+ }
+ @Override
+ public int getStamina() {
+ return super.getStamina() + StaminaWithShoes;
+ }
+ @Override
+ public int getMana() {
+ return super.getMana() + ManaWithShoes;
+ }
+}
