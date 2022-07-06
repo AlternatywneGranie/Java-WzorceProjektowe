@@ -1,0 +1,6 @@
+package rekrutacja;
+public interface IJednostkaNaziemna {
+ double poziom();
+ double obrona();
+ double atak ();
+}
