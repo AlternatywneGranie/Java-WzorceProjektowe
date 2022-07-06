@@ -1,0 +1,61 @@
+package pakedz;
+import java.util.Arrays;
+public class MyCustomList<T> implements IMyList<T>{
+ private final int sizeOfArray;
+ private final Object[] arrayOfObjects;
+ public MyCustomList(int capacity){
+ this.sizeOfArray = capacity;
+ this.arrayOfObjects = new Object[capacity];
+ }
+ public void add(T element){
+ for(int i = 0; i < this.sizeOfArray; i++){
+ if(this.arrayOfObjects[i] == null){
+ this.arrayOfObjects[i] = element;
+ break;
+ }
+ }
+ }
+ public void add(int index, T element){
+ if(index < this.sizeOfArray && index >= 0){
+ this.arrayOfObjects[index] = element;
+ }
+ else System.out.println("Indeks parametru, w którym chcesz dodać
+element, jest większy niż rozmiar tablicy lub mniejszy niż 0!!!");
+ }
+ public void clear(){
+ Arrays.fill(this.arrayOfObjects, null);
+ }
+ public T pop(){
+ T tmp_LastObj = null;
+ for(int i = this.sizeOfArray-1; i >= 0; i--){
+ if(this.arrayOfObjects[i] != null){
+ tmp_LastObj = (T)this.arrayOfObjects[i];
+ this.arrayOfObjects[i] = null;
+ break;
+ }
+ }
+ if(tmp_LastObj == null) System.out.println("Pusto!");
+ return tmp_LastObj;
+ }
+ public T get(int index){
+ if(index >= this.sizeOfArray || index < 0){
+ System.out.println("Indeks parametru, w którym chcesz dodać element,
+jest większy niż rozmiar tablicy lub mniejszy niż 0!");
+ return null;
+ }
+ return (T)this.arrayOfObjects[index];
+ }
+ public int size(){
+ return this.sizeOfArray;
+ }
+ public T remove(int index){
+ if(index >= this.sizeOfArray || index < 0){
+ System.out.println("Indeks parametru, w którym chcesz dodać element,
+jest większy niż rozmiar tablicy lub mniejszy niż 0!");
+ return null;
+ }
+ T tmp_Obj = (T)this.arrayOfObjects[index];
+ this.arrayOfObjects[index] = null;
+ return tmp_Obj;
+ }
+}
